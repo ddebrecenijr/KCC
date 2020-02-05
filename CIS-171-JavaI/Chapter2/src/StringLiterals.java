@@ -17,6 +17,6 @@ public class StringLiterals {
         \t                      Horizontal tab
         \b                      Backspace
         \ddd                    Octal Constant (where ddd is an octal constant)
-        \uxxxx                  Hexadecimal constant (where xxxx is a hexadecimal constant)
+        \ u xxxx                  Hexadecimal constant (where xxxx is a hexadecimal constant)
      */
 }
