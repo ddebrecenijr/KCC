@@ -12,6 +12,8 @@ public class Operators {
             Decrementer =>  --      in Python is equivalent to -= 1
          */
 
+        double i = Math.pow(10, 2);
+
         // Increment by 1
         for(int i = 0; i < 10; i++)
             System.out.println(i);
