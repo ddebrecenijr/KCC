@@ -31,12 +31,10 @@ questions.forEach(question => {
     askQuestion(question);
 });
 
-var questionForm = document.getElementById('question');
-
 function askQuestion(question) {
-    questionForm.textContent = question.question;
+    document.getElementById('question').textContent = question.question;
     var userAnswer = prompt('Answer: ', '');
-    if (userAnswer == answer) {
+    if (userAnswer == question.answer) {
         alert('Correct');
     }
     else{
