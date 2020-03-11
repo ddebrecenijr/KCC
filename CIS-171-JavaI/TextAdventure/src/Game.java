@@ -10,7 +10,7 @@ public class Game {
     // Our project here is called TextAdventure, our class is Game, they are different.
     // The main function serves to run our entire project
     public static void main(String[] args)  {
-        start();
+        gameStart();
         introduction();
 
         System.out.println("You see a door to the north.");
@@ -34,33 +34,27 @@ public class Game {
         }
         else if(choice == 3) {
             // Examine Stones
+            examineStones();
         }
         else if(choice == 4) {
             // Examine Branches
+            examineBranches();
         }
         else{
             // Go back to room
+            startingRoom();
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private static void examineSkull() {
+        // Description
         System.out.println();
         System.out.println("The skull appears to be very old and charred.");
         System.out.println("The skull is malformed, something you've not seen before.");
         System.out.println("Almost as if it was a creature entirely unknown.");
         System.out.println();
 
+        // Make Choice
         System.out.println("What would you like to do?");
         System.out.println("1: Take the skull");
         System.out.println("2: Go Back");
@@ -73,12 +67,75 @@ public class Game {
             System.out.println();
 
             inventory[++inventoryIndex] = "skull";
-
-            // Go back to room1
         }
+
+        startingRoom();
     }
 
-    private static void start() {
+    private static void examineStones() {
+        // Description
+        System.out.println();
+        System.out.println("Amongst some of the stones, you notice pieces of flint.");
+        System.out.println();
+
+        // Make Choice
+        System.out.println("What would you like to do?");
+        System.out.println("1: Take flint");
+        System.out.println("2: Go Back");
+
+        var choice = getUserInput.nextInt();
+        if (choice == 1){
+            System.out.println();
+            System.out.println("You take the flint.");
+            System.out.println();
+
+            inventory[++inventoryIndex] = "flint";
+        }
+
+        startingRoom();
+    }
+
+    private static void examineBranches() {
+        System.out.println();
+        System.out.println("The branches appear to be very dry.");
+        System.out.println();
+
+        System.out.println("What would you like to do?");
+        System.out.println("1: Take branch");
+        System.out.println("2: Go Back");
+
+        var choice = getUserInput.nextInt();
+
+        if (choice == 1) {
+            System.out.println();
+            System.out.println("You take the branch");
+            System.out.println();
+
+            inventory[++inventoryIndex] = "branch";
+        }
+
+        startingRoom();
+    }
+
+    private static void startingRoom() {
+        System.out.println();
+        System.out.println("You are in a dark room, littered with stones and branches.");
+        System.out.println("There is a small amount of light shining through a small hole above.");
+
+        if(!checkIfExistsInInventory("skull"))
+            System.out.println("There is a skull atop a pile of bones.");
+        System.out.println();
+    }
+
+    private static boolean checkIfExistsInInventory(String item) {
+        for (int i = 0; i < inventory.length; i++) {
+            if(inventory[i] == item)
+                return true;
+        }
+        return false;
+    }
+
+    private static void gameStart() {
         System.out.println();
         System.out.println("Enter the dungeon");
         System.out.println("should you dare...");
